@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mypage">
+	<resultMap id="mypageResult"  type="mypageVO" >
+		<result property="mypage_num" column="mypage_num"/>
+		<result property="mypage_date" column="mypage_date"/>
+		<result property="member_num" column="member_num"/>
+		<result property="board_num" column="board_num"/>
+	</resultMap>
+	
+	<insert id="insertMypage" parameterType="mypageVO">
+		INSERT INTO MYPAGE(mypage_date, member_num, board_num) 
+					VALUES(NOW(),#{member_num},#{board_num})
+	</insert>
+	
+	<select id="selectMypage" resultType="mypageVO">
+		SELECT * FROM MYPAGE
+	</select>
+	
+	<delete id="deleteMypage" parameterType="Integer">
+		DELETE FROM MYPAGE WHERE mypage_num=#{mypage_num}
+	</delete>
+	
+	<select id="selectCountInMypage" resultType="String" parameterType="mypageVO">
+	  <![CDATA[
+		  SELECT IF(COUNT(*)>0,'true','false') FROM MYPAGE
+		  WHERE member_num=#{member_num}
+		  and board_num=#{board_num} 
+	  ]]>
+	</select>
+	
+</mapper>

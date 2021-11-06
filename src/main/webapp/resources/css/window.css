@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+#layer {
+	z-index: 2;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+
+#popup {
+	z-index: 3;
+	position: fixed;
+	text-align: center;
+	left: 50%;
+	top: 45%;
+	width: 300px;
+	background-color: #f0ffff;
+	border: 1px solid #000;
+	padding : 40px;
+}
+
+#close {
+	z-index: 4;
+	float: right;
+}

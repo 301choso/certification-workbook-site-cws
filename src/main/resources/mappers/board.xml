@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<resultMap id="boardResult"  type="BoardVO" >
+		<result property="board_num" column="board_num"/>
+		<result property="board_title" column="board_title"/>
+		<result property="board_content" column="board_content"/>
+		<result property="board_answer" column="board_answer"/>
+		<result property="board_category" column="board_category"/>
+		<result property="board_date" column="board_date"/>
+		<result property="member_num" column="member_num"/>
+	</resultMap>
+	
+	<insert id="insertBoard" parameterType="java.util.Map">
+		INSERT INTO BOARD(board_title, board_content, board_answer, board_category, board_date, member_num) 
+					VALUES(#{board_title}, #{board_content}, #{board_answer}, #{board_category}, NOW(), #{member_num})	
+	</insert>
+
+	<select id="selectBoardTitle" resultMap="boardResult" parameterType="Integer">
+		SELECT * FROM BOARD WHERE board_num=#{board_num}
+	</select>
+	
+	<delete id="deleteBoard" parameterType="Integer">
+		DELETE FROM BOARD WHERE board_num=#{board_num}
+	</delete>
+	
+	<update id="updateBoard" parameterType="java.util.Map">
+		UPDATE BOARD 
+			<set>
+				<if test="board_title!='' and board_title!=null">
+					board_title=#{board_title},
+				</if>
+				<if test="board_content!='' and board_content!=null">
+					board_content=#{board_content},
+				</if>
+				<if test="board_answer!='' and board_answer!=null">
+					board_answer=#{board_answer},
+				</if>
+				<if test="member_num!='' and member_num!=null">
+					member_num=#{member_num},
+				</if>
+			</set>
+		WHERE board_num = #{board_num}
+	</update>
+	 
+	<select id="selectBoard" resultMap="boardResult">
+		<![CDATA[
+			SELECT * FROM BOARD WHERE board_num > 0
+				ORDER BY board_num DESC, board_date DESC 
+				limit #{pageStart}, #{perPageNum}
+		]]>	
+	</select>
+	
+	<select id="listCount" resultType="int">
+		<![CDATA[
+			SELECT count(board_num) FROM board WHERE board_num > 0 
+		]]>
+	</select>
+	
+	<select id="selectMyBoard" resultType="boardVO" parameterType="Integer">
+		SELECT * FROM BOARD WHERE member_num=#{member_num}
+	</select>
+</mapper>

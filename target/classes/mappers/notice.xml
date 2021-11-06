@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+	<resultMap id="noticeResult"  type="noticeVO" >
+		<result property="notice_num" column="notice_num"/>
+		<result property="notice_title" column="notice_title"/>
+		<result property="notice_content" column="notice_content"/>
+		<result property="notice_date" column="notice_date"/>
+	</resultMap>
+
+	<insert id="insertNotice" parameterType="java.util.Map">
+		INSERT INTO NOTICE(notice_title,notice_content,notice_date)
+					VALUES(#{notice_title}, #{notice_content}, NOW())						
+	</insert>
+	 
+	<select id="selectNotice" resultType="noticeVO" >
+		SELECT * FROM NOTICE
+	</select>
+	
+	<update id="updateNotice" parameterType="java.util.Map">
+		UPDATE NOTICE 
+			<set>
+			<if test="notice_title!='' and notice_title!=null">
+				notice_title=#{notice_title},
+			</if>
+			<if test="notice_content!='' and notice_content!=null">
+				notice_content=#{notice_content},
+			</if>
+			</set>
+		WHERE notice_num=#{notice_num}
+	</update>
+	
+	<select id="selectNoticeTitle" resultType="noticeVO" parameterType="Integer">
+		SELECT * FROM NOTICE WHERE notice_num=#{notice_num}
+	</select>
+	
+	<delete id="deleteNotice" parameterType="Integer">
+		DELETE FROM NOTICE WHERE notice_num=#{notice_num}
+	</delete>
+</mapper>

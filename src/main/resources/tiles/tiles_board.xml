@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="/board/viewBoard" extends="baseLayout">
+		<put-attribute name="title" value="게시물 상세 페이지"/>
+		<put-attribute name="body" value="/WEB-INF/views/board/viewBoard.jsp"/>
+	</definition>
+	
+	<definition name="/board/goEditBoardForm" extends="baseLayout">
+		<put-attribute name="title" value="수정 페이지"/>
+		<put-attribute name="body" value="/WEB-INF/views/board/editBoardForm.jsp"/>
+	</definition>
+	
+	<definition name="/board/qListBoard" extends="baseLayout">
+		<put-attribute name="title" value="게시목록 페이지"/>
+		<put-attribute name="body" value="/WEB-INF/views/board/qListBoard.jsp"/>
+	</definition>
+	
+	<definition name="/board/goAddBoardForm" extends="baseLayout">
+		<put-attribute name="title" value="입력 페이지"/>
+		<put-attribute name="body" value="/WEB-INF/views/board/addBoardForm.jsp"/>
+	</definition>
+	
+	<definition name="/board/noticeView" extends="baseLayout">
+		<put-attribute name="title" value="공지사항 페이지"/>
+		<put-attribute name="body" value="/WEB-INF/views/board/notice.jsp"/>
+	</definition>
+	
+</tiles-definitions>
