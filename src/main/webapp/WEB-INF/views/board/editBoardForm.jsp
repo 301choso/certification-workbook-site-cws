@@ -6,15 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${contextPath}/resources/css/css.css" type="text/css"/>
 <title>게시물 입력</title>
 </head>
 <body>
 <form name="post" action="${contextPath}/board/updateBoard.do" method="post"> 
 <div class="board_wrap">
 	<div class="board_title">
-	 	<strong>게시판</strong>
-	 	<p>게시물을 입력하세요</p>
+	 	<p>게시물을 수정하세요</p>
 	</div>
 	<div class="board_write_wrap">
 		<div class="board_write">

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cws.domain.BoardVO;
 import com.cws.domain.Criteria;
 import com.cws.domain.MemberVO;
 import com.cws.domain.NoticeVO;
@@ -29,6 +30,9 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
+	
+//	@Autowired
+//	private BoardVO boardVO;
 	
 	ModelAndView mav=new ModelAndView();
 	
@@ -67,8 +71,8 @@ public class BoardController {
 		
 		System.out.println(board_title+""+board_content+""+board_answer+""+board_category+""+member_num);
 		boardmap.put("board_title",board_title);
-		boardmap.put("board_content",board_content);
-		boardmap.put("board_answer",board_answer);
+		boardmap.put("board_content",board_content.replaceAll("\r\n", "<br>"));
+		boardmap.put("board_answer",board_answer.replaceAll("\r\n", "<br>"));
 		boardmap.put("board_category",board_category);
 		boardmap.put("member_num",member_num);
 		boardService.insertBoard(boardmap);
@@ -81,6 +85,7 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();		
 		mav.setViewName((String)request.getAttribute("viewName"));
 		mav.addObject("list", boardService.selectBoardTitle(board_num));
+		
 		return mav;
 	}
 		
@@ -108,8 +113,8 @@ public class BoardController {
 		Map<String,Object> boardmap = new HashMap<String, Object>();
 		
 		boardmap.put("board_title",board_title);
-		boardmap.put("board_content",board_content);
-		boardmap.put("board_answer",board_answer);
+		boardmap.put("board_content",board_content.replaceAll("\r\n", "<br>"));
+		boardmap.put("board_answer",board_answer.replaceAll("\r\n", "<br>"));
 		boardmap.put("member_num",member_num);
 		boardmap.put("board_num",board_num);
 		

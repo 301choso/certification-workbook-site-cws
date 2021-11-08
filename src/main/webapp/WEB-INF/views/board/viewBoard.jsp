@@ -6,11 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">	
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-      rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-	<link rel="stylesheet" href="${contextPath}/resources/css/css.css" type="text/css"/>
+ <meta charset="UTF-8">
 <script>
 function add_mypage(board_num) {
     $.ajax({
@@ -52,16 +48,17 @@ function add_mypage(board_num) {
        jQuery('#layer').attr('style', 'visibility:hidden');
     }
  }
- 
+ function show_answer(){
+	 jQuery('#answer').attr('style', 'visibility:visible');
+ }
 </script>
 </head>
 <body>
  <div class="board_wrap">
- 	<p>카테고리</p>
+ 	<p>카테고리 _ ${list.board_category}</p>
 	<div class="board_title">
 		<div class="row justify-content-between">
 		    <div class="col-4">
-		      <strong>제목입니다</strong>
 		    </div>
 		    <div class="col-2 mt-2">
 		    <c:if test="${memberInfo.member_num == list.member_num }">
@@ -72,20 +69,21 @@ function add_mypage(board_num) {
 	    </div>		
 	</div>
 	<div class="board_view_wrap">
-	<div class="board_view">
-		<div class="row justify-content-between">
-			<div class = "title col-4">
+	<div class="board_view"><div class="title row justify-content-between">
+		<div class="col-md-8">
 				${list.board_title} 
 			</div>
+			<div class ="col-6 col-md-4">
 			<c:if test="${memberInfo.member_num !='' and memberInfo.member_num !=null }">
-			<div class="col-2 mt-2">			
+			
+			<div align="right">	
 				<div id="wrap">
-  					<button onclick="add_mypage('${list.board_num}');">관심목록에 추가</button>
+  					<button onclick="add_mypage('${list.board_num}');"><font size="3">관심목록에 추가</font></button>
 				</div>
 			</div>
 			</c:if>
+		 </div>
 		</div>
-	
 		<div class = "info">
 			<dl>
 				<dt>번호</dt>
@@ -103,6 +101,13 @@ function add_mypage(board_num) {
 		
 		 <div class = "cont">
 			${list.board_content}
+		 <div>
+		 <br>
+	 	<button onclick="show_answer()">정답보기</button>
+	 	<div id="answer" style="visibility:hidden">
+	 		답 : ${list.board_answer}
+	 	</div>
+		 </div>
 		 </div>
 	</div>	
 	<div class="bt_wrap">

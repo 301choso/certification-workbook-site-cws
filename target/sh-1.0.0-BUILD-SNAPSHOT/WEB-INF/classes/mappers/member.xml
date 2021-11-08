@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	<resultMap id="memberResult"  type="memberVO" >
+		<result property="member_num" column="member_num"/>
+		<result property="member_id" column="member_id"/>
+		<result property="member_pw" column="member_pw"/>
+		<result property="member_email" column="member_email"/>
+		<result property="member_join_date" column="member_join_date"/>
+		<result property="member_member_yn" column="member_member_yn"/>
+	</resultMap>
+	
+	<insert id="insertMember" parameterType="java.util.Map">
+		INSERT INTO MEMBER(member_id,member_pw,member_email,member_join_date,member_member_yn, member_email_yn)
+					VALUES(#{member_id}, #{member_pw}, #{member_email}, NOW(), "Y", #{member_email_yn})						
+	</insert>
+	
+	<select id="selectLoginCheck" resultType="memberVO" parameterType="java.util.Map">
+		SELECT * FROM MEMBER WHERE member_id=#{member_id} AND member_pw=#{member_pw}
+	</select>
+	
+	<select id="selectMember" resultType="memberVO" >
+		SELECT * FROM MEMBER ORDER BY member_id DESC
+	</select>
+	
+	<select id="selectMemberNum" resultType="memberVO" parameterType="Integer" >
+		SELECT * FROM MEMBER WHERE member_num=#{member_num}
+	</select>
+	
+	<select id="memberIdCheck" resultType="Integer" parameterType="String" >
+		SELECT COUNT(*) FROM MEMBER WHERE member_id=#{member_id}
+	</select>
+	
+	<update id="updateMember" parameterType="java.util.Map">
+		UPDATE MEMBER
+			<set>
+				<if test="member_id !='' and member_id !=null">
+					member_id=#{member_id},	
+				</if>
+				<if test="member_pw !='' and member_pw !=null">
+					member_pw=#{member_pw},	
+				</if>
+				<if test="member_email !='' and member_email !=null">
+					member_email=#{member_email},	
+				</if>
+			</set>
+			WHERE member_num=#{member_num}
+	</update>
+</mapper>
