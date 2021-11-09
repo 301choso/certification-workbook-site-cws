@@ -31,9 +31,6 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-//	@Autowired
-//	private BoardVO boardVO;
-	
 	ModelAndView mav=new ModelAndView();
 	
 	@RequestMapping(value="/goAddBoardForm.do", method = RequestMethod.GET)
@@ -122,13 +119,22 @@ public class BoardController {
 		return "redirect:/main/main.do";
 	}
 	
-	@RequestMapping(value = "/noticeView.do")
-	public ModelAndView NoticeView(HttpServletRequest request) throws Exception {
+	@RequestMapping(value = "/noticeList.do")
+	public ModelAndView noticeList(HttpServletRequest request) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName((String)request.getAttribute("viewName"));		
 		
 		List<NoticeVO> noticeList = boardService.allNoticeList();
 		mav.addObject("list", noticeList);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/noticeView.do")
+	public ModelAndView NoticeView(int notice_num,HttpServletRequest request) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName((String)request.getAttribute("viewName"));		
+		
+		mav.addObject("list", boardService.selectNoticeView(notice_num));
 		return mav;
 	}
 }

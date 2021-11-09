@@ -69,7 +69,8 @@ function add_mypage(board_num) {
 	    </div>		
 	</div>
 	<div class="board_view_wrap">
-	<div class="board_view"><div class="title row justify-content-between">
+	<div class="board_view">
+	<div class="title row justify-content-between">
 		<div class="col-md-8">
 				${list.board_title} 
 			</div>

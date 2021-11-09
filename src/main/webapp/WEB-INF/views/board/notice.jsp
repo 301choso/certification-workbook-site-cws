@@ -28,7 +28,7 @@
 		<c:forEach var="list" items="${list}">
 		 <div>
 			<div class="num">${list.notice_num}</div>
-			<div class="title"><a href="${contextPath}/board/view.do?board_num=${list.notice_num}">${list.notice_title}</a></div>
+			<div class="title"><a href="${contextPath}/board/noticeView.do?notice_num=${list.notice_num}">${list.notice_title}</a></div>
 			<div class="date"><fmt:formatDate value="${list.notice_date}" pattern="yyyy-MM-dd (hh:mm:ss)"/></div>
 			<div class="author">${list.notice_num}</div>
 		 </div>

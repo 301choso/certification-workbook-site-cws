@@ -23,9 +23,14 @@
 		<put-attribute name="body" value="/WEB-INF/views/board/addBoardForm.jsp"/>
 	</definition>
 	
-	<definition name="/board/noticeView" extends="baseLayout">
+	<definition name="/board/noticeList" extends="baseLayout">
 		<put-attribute name="title" value="공지사항 페이지"/>
 		<put-attribute name="body" value="/WEB-INF/views/board/notice.jsp"/>
+	</definition>
+	
+	<definition name="/board/noticeView" extends="baseLayout">
+		<put-attribute name="title" value="공지사항 상세페이지"/>
+		<put-attribute name="body" value="/WEB-INF/views/board/viewNotice.jsp"/>
 	</definition>
 	
 </tiles-definitions>

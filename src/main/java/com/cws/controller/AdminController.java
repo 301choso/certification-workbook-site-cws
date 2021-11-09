@@ -62,7 +62,7 @@ public class AdminController {
 		
 		Map<String,String> noticeMap = new HashMap<>();
 		noticeMap.put("notice_title", notice_title);
-		noticeMap.put("notice_content", notice_content);
+		noticeMap.put("notice_content", notice_content.replaceAll("\r\n", "<br>"));
 		
 		adminService.addNotice(noticeMap);
 		return "redirect:/admin/noticePage.do";
@@ -95,7 +95,7 @@ public class AdminController {
 		
 		Map<String,Object> noticeMap = new HashMap<>();
 		noticeMap.put("notice_title", notice_title);
-		noticeMap.put("notice_content", notice_content);
+		noticeMap.put("notice_content", notice_content.replaceAll("\r\n", "<br>"));
 		noticeMap.put("notice_num", notice_num);
 		
 		adminService.updateNotice(noticeMap);

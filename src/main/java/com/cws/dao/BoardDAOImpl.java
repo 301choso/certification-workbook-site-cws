@@ -54,5 +54,10 @@ public class BoardDAOImpl implements BoardDAO{
 		return sqlSession.selectList("notice.selectNotice");
 	}
 
+	@Override
+	public NoticeVO selectNoticeView(int notice_num) throws Exception {
+		return sqlSession.selectOne("notice.selectNoticeTitle",notice_num);
+	}
+
 
 }

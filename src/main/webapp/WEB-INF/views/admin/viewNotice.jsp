@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resources/css/css.css" type="text/css"/>
 <title>게시물 상세</title>
 </head>
 <body>
@@ -15,8 +14,7 @@
 	<div class="board_title">
 		<div class="row justify-content-between">
 		    <div class="col-4">
-		      <strong>게시판</strong>
-		 	  <p>게시물을 상세화면입니다</p>
+		      <strong>공지사항</strong>
 		    </div>
 		    <div class="col-2 mt-2">
 				<a class="btn btn-outline-primary" href="${contextPath}/admin/goEditNoticeForm.do?notice_num=${list.notice_num}" role="button">수정</a>
@@ -26,13 +24,10 @@
 	    </div>		
 	</div>
 	
-	<div class="board_write_wrap">
-		<div class="board_write">
+	<div class="board_view_wrap">
+		<div class="board_view">
 		<div class = "title">
-			<dl>
-				<dt>제목</dt>
-				<dd>${list.notice_title}</dd>
-			</dl>
+			${list.notice_title}
 		</div>
 		<div class="cont">
 			${list.notice_content}

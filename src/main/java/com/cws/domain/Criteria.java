@@ -2,10 +2,10 @@ package com.cws.domain;
 
 public class Criteria {
 	
-	private int page;	//?˜„?¬ ?˜?´ì§? ë²ˆí˜¸
-	private int perPageNum;	//?•œ ?˜?´ì§??— ì¶œë ¥?•  ê°œìˆ˜
-	private int rowStart;	//?‹œ?‘?˜?´ì§? ë²ˆí˜¸
-	private int rowEnd;		//??˜?´ì§? ë²ˆí˜¸. ?‹œ?‘?˜?´ì§?ë²ˆí˜¸?—?„œ ëª‡ê°œ ë³´ì—¬ì¤„ì? ê²°ì •
+	private int page;	
+	private int perPageNum;	
+	private int rowStart;	
+	private int rowEnd;	
 	
 	public Criteria() {
 		this.page = 1;

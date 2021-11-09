@@ -60,7 +60,6 @@
 
 	<div class="bt_wrap">
 		<a href="${contextPath}/admin/goAddNoticeForm.do" class="on">입력</a>
-		<a href="${contextPath}/board/edit.do">수정</a>
 	</div>
 	</div>
  </div>

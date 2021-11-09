@@ -7,9 +7,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="${contextPath}/resources/css/css.css" type="text/css"/>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-      rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
  <div class="board_wrap">
@@ -44,7 +41,7 @@
 	      <strong>공지사항</strong>
 	    </div>
 	    <div class="col-2">
-	      <a href="${contextPath}/board/noticeView.do" >더보기</a>
+	      <a href="${contextPath}/board/noticeList.do" >더보기</a>
 	    </div>
     </div>	
 	<hr>	
@@ -54,10 +51,10 @@
 			<div class="title">제목</div>
 			<div class="date">작성일</div>
 		</div>
-		<c:forEach var="nlist" items="${notice_list}" begin="1" end="5">
+		<c:forEach var="nlist" items="${notice_list}" >
 		 <div>
 			<div class="num">${nlist.notice_num}</div>
-			<div class="title"><a href="${contextPath}/noticeView.do?notice_num=${nlist.notice_num}">${nlist.notice_title}</a></div>
+			<div class="title"><a href="${contextPath}/board/noticeView.do?notice_num=${nlist.notice_num}">${nlist.notice_title}</a></div>
 			<div class="date"><fmt:formatDate value="${nlist.notice_date}" pattern="yyyy-MM-dd (hh:mm:ss)"/></div>			
 		 </div>
 		</c:forEach>

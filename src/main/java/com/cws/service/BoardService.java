@@ -23,5 +23,7 @@ public interface BoardService {
 
 	public List<NoticeVO> allNoticeList() throws Exception;
 
+	public NoticeVO selectNoticeView(int notice_num) throws Exception;
+
 
 }

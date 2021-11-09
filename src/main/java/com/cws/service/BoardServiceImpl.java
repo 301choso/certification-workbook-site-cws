@@ -53,5 +53,10 @@ public class BoardServiceImpl implements BoardService {
 		return boardDao.allNoticeList();
 	}
 
+	@Override
+	public NoticeVO selectNoticeView(int notice_num) throws Exception {
+		return boardDao.selectNoticeView(notice_num);
+	}
+
 	
 }
