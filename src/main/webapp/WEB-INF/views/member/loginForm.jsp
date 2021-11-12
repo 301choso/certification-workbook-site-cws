@@ -5,9 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
-	<link rel="stylesheet" href="${contextPath}/resources/css/css.css" type="text/css"/>
+	<meta charset="UTF-8">
 <script type="text/javascript">
 function checkAll(){
 	var id = document.getElementById("member_id");

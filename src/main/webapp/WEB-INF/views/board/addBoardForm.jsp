@@ -5,9 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="${contextPath}/resources/css/css.css" type="text/css"/>
-<title>게시물 입력</title>
+	<meta charset="UTF-8">
 </head>
 <body>
 <form name="post" action="${contextPath}/board/addBoard.do" method="post"> 

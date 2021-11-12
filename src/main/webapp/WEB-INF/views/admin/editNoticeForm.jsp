@@ -5,9 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="resources/css/css.css" type="text/css"/>
-<title>게시물 수정</title>
+	<meta charset="UTF-8">
 </head>
 <body>
 <form name="edit" action="${contextPath}/admin/updateNotice.do" method="post"> 

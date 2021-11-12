@@ -5,8 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>게시물 상세</title>
+	<meta charset="UTF-8">
 </head>
 <body>
 <div class="board_wrap">
