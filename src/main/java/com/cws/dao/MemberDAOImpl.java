@@ -39,4 +39,9 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.update("member.updateMember", memberMap);
 	}
 
+	@Override
+	public int selectMemberEmail(String member_email) throws Exception {
+		return sqlSession.selectOne("member.selectMemberEmail",member_email);
+	}
+
 }

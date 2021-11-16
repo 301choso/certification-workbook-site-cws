@@ -39,6 +39,11 @@ public class MemberServiceImpl implements MemberService {
 	public void updateMember(Map<String, Object> memberMap) throws Exception {
 		memberDAO.updateMember(memberMap);
 	}
+
+	@Override
+	public int selectMemberEmail(String member_email) throws Exception {
+		return memberDAO.selectMemberEmail(member_email);
+	}
 	
 	
 }

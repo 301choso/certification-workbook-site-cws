@@ -22,4 +22,10 @@
 		<put-attribute name="title" value="회원정보 수정 페이지"/>
 		<put-attribute name="body" value="/WEB-INF/views/member/editMemberForm.jsp"/>
 	</definition>
+	
+	<definition name="/member/goLoginSearchForm" extends="baseLayout">
+		<put-attribute name="title" value="회원정보 찾기 페이지"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/loginSearchForm.jsp"/>
+	</definition>
+	
 </tiles-definitions>

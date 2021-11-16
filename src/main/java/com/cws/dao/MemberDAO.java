@@ -16,4 +16,6 @@ public interface MemberDAO {
 
 	public void updateMember(Map<String, Object> memberMap) throws Exception;
 
+	public int selectMemberEmail(String member_email) throws Exception;
+
 }

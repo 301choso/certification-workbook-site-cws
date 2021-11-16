@@ -2,6 +2,8 @@ package com.cws.domain;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+@Component
 public class BoardVO {
 	 private int board_num;     
 	 private String board_title;    
@@ -10,6 +12,7 @@ public class BoardVO {
 	 private String board_category;
 	 private Date board_date; 
 	 private int member_num;
+	 private String member_id;
 	 
 	public int getBoard_num() {
 		return board_num;
@@ -52,6 +55,12 @@ public class BoardVO {
 	}
 	public void setMember_num(int member_num) {
 		this.member_num = member_num;
+	}
+	public String getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
 	}
 	
 }

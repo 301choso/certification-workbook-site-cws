@@ -7,6 +7,13 @@
 <head>
 	<meta charset="UTF-8">
 <script type="text/javascript">
+$(function(){
+	var responseMessage = "<c:out value = "${message}" />";
+	if(responseMessage != ""){
+		alert(responseMessage)
+	}
+})
+
 function checkAll(){
 	var id = document.getElementById("member_id");
 	var pw = document.getElementById("member_pw");
@@ -42,10 +49,11 @@ function checkAll(){
 	        <input type="password" name="member_pw" id="member_pw" placeholder="비밀번호 입력">
 	    </div>
 	    <div class="login_etc">
-	        <div class="checkbox">
-	        <input type="checkbox" name="" id=""> 로그인 상태유지&emsp;|&emsp;
-	        </div>
-	        <div class="forgot_pw">
+	       <!--  <div class="checkbox">
+	         <input type="checkbox" name="" id=""> 로그인 상태유지&emsp;|&emsp;
+	        </div>-->
+	        <div class="forgot">
+	        <a href="">아이디 찾기</a>&emsp;| &emsp;
 	        <a href="">비밀번호 찾기</a>
 	    	</div>
 	    </div>

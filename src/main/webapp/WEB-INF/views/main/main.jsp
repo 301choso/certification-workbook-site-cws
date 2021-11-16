@@ -31,7 +31,7 @@
 			<div class="num">${blist.board_num}</div>
 			<div class="title"><a href="${contextPath}/board/viewBoard.do?board_num=${blist.board_num}">${blist.board_title}</a></div>
 			<div class="date"><fmt:formatDate value="${blist.board_date}" pattern="yyyy-MM-dd (hh:mm:ss)"/></div>
-			<div class="author">${blist.member_num}</div>
+			<div class="author">${blist.member_id}</div>
 		 </div>
 		</c:forEach>
 	</div>

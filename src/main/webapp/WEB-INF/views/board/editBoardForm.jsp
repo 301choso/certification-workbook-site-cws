@@ -38,14 +38,14 @@
 			</dl>
 		</div>
 		<div class="cont">
-			<textarea name = "board_content" >${list.board_content}</textarea>
-			<textarea name = "board_answer" >${list.board_answer}</textarea>		
+			<textarea name = "board_content" >${board_content}</textarea>
+			<textarea name = "board_answer" >${board_answer}</textarea>		
 		</div>
 		</div>
 		<input type = "reset" value = "새로고침">
 	 <div class="bt_wrap">
 			<a href="javascript:post.submit();">등록</a>
-		<a href="/sh/main/main.do" class="on">목록</a>
+		<a href="${contextPath}/main/main.do" class="on">목록</a>
 	 </div>
 	</div>	
 </div>

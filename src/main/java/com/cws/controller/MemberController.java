@@ -2,6 +2,7 @@ package com.cws.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -24,6 +25,7 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
 	@Autowired
 	private MemberVO memberVO;
 	
@@ -139,6 +141,17 @@ public class MemberController {
 		
 		memberService.updateMember(memberMap);
 		
-		return "redirect:/main/main.do"; //마이페이지 메인으로 가기
+		return "redirect:/main/main.do"; 
 	}
+	
+	@RequestMapping(value = "/goLoginSearchForm.do")
+	public ModelAndView goLoginSearchForm(HttpServletRequest request) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName((String)request.getAttribute("viewName"));	
+		return mav;
+	}
+	
+	
+	
+	
 }

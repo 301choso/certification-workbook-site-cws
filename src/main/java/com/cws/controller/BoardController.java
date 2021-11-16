@@ -31,6 +31,9 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
+	@Autowired
+	private BoardVO boardVO;
+	
 	ModelAndView mav=new ModelAndView();
 	
 	@RequestMapping(value="/goAddBoardForm.do", method = RequestMethod.GET)
@@ -96,7 +99,11 @@ public class BoardController {
 	public ModelAndView editBoardForm(int board_num,HttpServletRequest request, HttpServletResponse response) throws Exception{	
 		ModelAndView mav = new ModelAndView();		
 		mav.setViewName((String)request.getAttribute("viewName"));
-		mav.addObject("list", boardService.selectBoardTitle(board_num));
+		
+		boardVO = boardService.selectBoardTitle(board_num);
+		mav.addObject("list", boardVO);
+		mav.addObject("board_content",boardVO.getBoard_content().replaceAll("<br>", "\r\n"));
+		mav.addObject("board_answer",boardVO.getBoard_answer().replaceAll("<br>", "\r\n"));
 		return mav;
 	}
 	

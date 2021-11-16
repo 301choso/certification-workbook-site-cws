@@ -48,4 +48,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</set>
 			WHERE member_num=#{member_num}
 	</update>
+	
+	<select id="selectMemberEmail" resultType="Integer" parameterType="String">
+		SELECT COUNT(*) FROM MEMBER WHERE member_email=#{member_email}
+	</select>
+	
 </mapper>

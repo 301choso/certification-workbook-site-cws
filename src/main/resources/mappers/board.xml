@@ -11,6 +11,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="board_category" column="board_category"/>
 		<result property="board_date" column="board_date"/>
 		<result property="member_num" column="member_num"/>
+		<result property="member_id" column="member_id"/>
+	</resultMap>
+	
+	<resultMap id="memberResult"  type="memberVO" >
+		<result property="member_num" column="member_num"/>
+		<result property="member_id" column="member_id"/>
+		<result property="member_pw" column="member_pw"/>
+		<result property="member_email" column="member_email"/>
+		<result property="member_join_date" column="member_join_date"/>
+		<result property="member_member_yn" column="member_member_yn"/>
 	</resultMap>
 	
 	<insert id="insertBoard" parameterType="java.util.Map">
@@ -19,7 +29,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<select id="selectBoardTitle" resultMap="boardResult" parameterType="Integer">
-		SELECT * FROM BOARD WHERE board_num=#{board_num}
+		SELECT b.*, m.member_id FROM BOARD b, MEMBER m 
+				WHERE  b.member_num = m.member_num
+				and board_num=#{board_num}
 	</select>
 	
 	<delete id="deleteBoard" parameterType="Integer">
@@ -47,8 +59,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 
 	<select id="selectBoard" resultMap="boardResult">
 		<![CDATA[
-			SELECT * FROM BOARD WHERE board_num > 0
-				ORDER BY board_num DESC, board_date DESC 
+			SELECT b.*, m.member_id FROM BOARD b, MEMBER m 
+				WHERE  b.member_num = m.member_num
+				and b.board_num > 0
+				ORDER BY b.board_num DESC, b.board_date DESC 
 				limit #{pageStart}, #{perPageNum}
 		]]>	
 	</select>
@@ -60,6 +74,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectMyBoard" resultType="boardVO" parameterType="Integer">
-		SELECT * FROM BOARD WHERE member_num=#{member_num}
+		SELECT b.*, m.member_id FROM BOARD b, MEMBER m 
+				WHERE  b.member_num = m.member_num
+				and member_num=#{member_num}
 	</select>
 </mapper>

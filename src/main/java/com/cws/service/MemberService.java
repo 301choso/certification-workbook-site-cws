@@ -15,5 +15,7 @@ public interface MemberService {
 	public int memberIdCheck(String member_id) throws Exception;
 
 	public void updateMember(Map<String, Object> memberMap) throws Exception;
+
+	public int selectMemberEmail(String member_email) throws Exception;
 	
 }

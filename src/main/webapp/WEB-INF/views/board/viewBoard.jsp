@@ -96,7 +96,7 @@ function add_mypage(board_num) {
 			</dl>
 			<dl>
 				<dt>글쓴이</dt>
-				<dd>${list.member_num}</dd>
+				<dd>${list.member_id}</dd>
 			</dl>
 		</div>
 		

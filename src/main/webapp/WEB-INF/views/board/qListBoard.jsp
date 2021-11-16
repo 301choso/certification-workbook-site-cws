@@ -41,7 +41,7 @@ function checkSession(memberInfo){
 			<div class="num">${list.board_num}</div>
 			<div class="title"><a href="${contextPath}/board/viewBoard.do?board_num=${list.board_num}">${list.board_title}</a></div>
 			<div class="date"><fmt:formatDate value="${list.board_date}" pattern="yyyy-MM-dd (hh:mm:ss)"/></div>
-			<div class="author">${list.member_num}</div>
+			<div class="author">${list.member_id}</div>
 		 </div>
 		</c:forEach>
 	</div>
@@ -71,7 +71,6 @@ function checkSession(memberInfo){
 
 	<div class="bt_wrap">
 		<a class="on" onclick="checkSession('${memberInfo.member_id}')">입력</a>
-		<a href="${contextPath}/board/goEditBoardForm.do">수정</a>
 	</div>
 	</div>
  </div>
