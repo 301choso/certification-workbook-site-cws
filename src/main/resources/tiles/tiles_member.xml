@@ -28,4 +28,9 @@
 		<put-attribute name="body" value="/WEB-INF/views/member/loginSearchForm.jsp"/>
 	</definition>
 	
+	<definition name="/member/loginSearch" extends="baseLayout">
+		<put-attribute name="title" value="비밀번호 찾기"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/loginForm.jsp"/>
+	</definition>
+	
 </tiles-definitions>

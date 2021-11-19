@@ -53,8 +53,7 @@ function checkAll(){
 	         <input type="checkbox" name="" id=""> 로그인 상태유지&emsp;|&emsp;
 	        </div>-->
 	        <div class="forgot">
-	        <a href="">아이디 찾기</a>&emsp;| &emsp;
-	        <a href="">비밀번호 찾기</a>
+	        <a href="${contextPath}/member/goLoginSearchForm.do">비밀번호 찾기</a>
 	    	</div>
 	    </div>
 	    <div class="submit">
